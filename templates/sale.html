@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>Sale Products</h1>
+  {% for product in products %}
+    <div class="product">
+      <h3>
+        <a href="/product/{{ product.slug }}/">{{ product.name }}</a>
+        <span class="sale-badge">SALE</span>
+      </h3>
+      <p>{{ product.description }}</p>
+      <p>Price: {{ product.discount_price }} (was {{ product.price }})</p>
+    </div>
+  {% empty %}
+    <p>No sale products.</p>
+  {% endfor %}
+{% endblock %}

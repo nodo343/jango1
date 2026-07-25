@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Simple Shop</title>
+    <style>
+      body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+      header { background:#333; color:#fff; padding:10px 20px; }
+      nav a { color:#fff; margin-right:15px; text-decoration:none }
+      .container { display:flex; gap:20px; padding:20px }
+      .sidebar { width:220px }
+      .content { flex:1 }
+      .product { border:1px solid #eee; padding:10px; margin-bottom:10px }
+      .sale-badge { color:#fff; background:#e74c3c; padding:3px 6px; border-radius:3px; font-weight:bold }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/sale/">Sale</a>
+      </nav>
+    </header>
+    <div class="container">
+      <aside class="sidebar">
+        <h3>Categories</h3>
+        <ul>
+          {% for cat in categories %}
+            <li><a href="/category/{{ cat.slug }}/">{{ cat.name }} ({{ cat.product_count }})</a></li>
+          {% empty %}
+            <li>No categories</li>
+          {% endfor %}
+        </ul>
+      </aside>
+      <main class="content">
+        {% block content %}{% endblock %}
+      </main>
+    </div>
+  </body>
+</html>

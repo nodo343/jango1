@@ -1,0 +1,76 @@
+[
+  {
+    "model": "store.category",
+    "pk": 1,
+    "fields": {
+      "name": "Electronics",
+      "slug": "electronics",
+      "description": "Electronic devices and gadgets"
+    }
+  },
+  {
+    "model": "store.category",
+    "pk": 2,
+    "fields": {
+      "name": "Clothing",
+      "slug": "clothing",
+      "description": "Apparel and accessories"
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Wireless Headphones",
+      "slug": "wireless-headphones",
+      "description": "Comfortable wireless headphones with great sound",
+      "price": "79.99",
+      "is_on_sale": true,
+      "discount_price": "59.99",
+      "available": true
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "name": "Smartphone",
+      "slug": "smartphone",
+      "description": "Latest model smartphone",
+      "price": "499.00",
+      "is_on_sale": false,
+      "discount_price": null,
+      "available": true
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 3,
+    "fields": {
+      "category": 2,
+      "name": "T-Shirt",
+      "slug": "t-shirt",
+      "description": "100% cotton t-shirt",
+      "price": "19.99",
+      "is_on_sale": true,
+      "discount_price": "14.99",
+      "available": true
+    }
+  },
+  {
+    "model": "store.product",
+    "pk": 4,
+    "fields": {
+      "category": 2,
+      "name": "Jeans",
+      "slug": "jeans",
+      "description": "Comfortable denim jeans",
+      "price": "49.99",
+      "is_on_sale": false,
+      "discount_price": null,
+      "available": true
+    }
+  }
+]
