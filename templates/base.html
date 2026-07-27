@@ -13,6 +13,15 @@
       .content { flex:1 }
       .product { border:1px solid #eee; padding:10px; margin-bottom:10px }
       .sale-badge { color:#fff; background:#e74c3c; padding:3px 6px; border-radius:3px; font-weight:bold }
+      .actions { display:flex; gap:10px; margin:10px 0; }
+      .button { background:#333; color:#fff; border:0; padding:8px 12px; text-decoration:none; cursor:pointer; display:inline-block; }
+      .button.secondary { background:#666; }
+      .button.danger { background:#c0392b; }
+      form p { margin-bottom:14px; }
+      label { display:block; font-weight:bold; margin-bottom:4px; }
+      input, select, textarea { box-sizing:border-box; max-width:520px; width:100%; padding:8px; }
+      input[type="checkbox"] { width:auto; }
+      .errorlist { color:#c0392b; }
     </style>
   </head>
   <body>
@@ -20,6 +29,7 @@
       <nav>
         <a href="/">Home</a>
         <a href="/sale/">Sale</a>
+        <a href="/product/add/">Add Product</a>
       </nav>
     </header>
     <div class="container">
