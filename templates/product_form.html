@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h1>{{ title }}</h1>
+  <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="actions">
+      <button class="button" type="submit">{{ submit_label }}</button>
+      {% if product %}
+        <a class="button secondary" href="/product/{{ product.slug }}/">Cancel</a>
+      {% else %}
+        <a class="button secondary" href="/">Cancel</a>
+      {% endif %}
+    </div>
+  </form>
+{% endblock %}
