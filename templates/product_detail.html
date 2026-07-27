@@ -5,4 +5,9 @@
   <p>{{ product.description }}</p>
   <p>Price: {{ product.get_display_price }}</p>
   <p>Category: <a href="/category/{{ product.category.slug }}/">{{ product.category.name }}</a></p>
+  <p>Available: {{ product.available|yesno:"Yes,No" }}</p>
+  <div class="actions">
+    <a class="button secondary" href="/product/{{ product.slug }}/edit/">Edit</a>
+    <a class="button danger" href="/product/{{ product.slug }}/delete/">Delete</a>
+  </div>
 {% endblock %}
