@@ -2,22 +2,5 @@
 
 {% block content %}
   <h1>All Products</h1>
-  {% for product in products %}
-    <div class="product">
-      <h3>
-        <a href="/product/{{ product.slug }}/">{{ product.name }}</a>
-        {% if product.has_discount %}
-          <span class="sale-badge">SALE</span>
-        {% endif %}
-      </h3>
-      <p>{{ product.description }}</p>
-      <p>Price: {{ product.get_display_price }}</p>
-      <div class="actions">
-        <a class="button secondary" href="/product/{{ product.slug }}/edit/">Edit</a>
-        <a class="button danger" href="/product/{{ product.slug }}/delete/">Delete</a>
-      </div>
-    </div>
-  {% empty %}
-    <p>No products available.</p>
-  {% endfor %}
+  {% include 'includes/product_list.html' with empty_message='No products available.' %}
 {% endblock %}
