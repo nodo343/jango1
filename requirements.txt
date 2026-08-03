@@ -1,1 +1,2 @@
 Django>=6.0,<6.1
+django-debug-toolbar>=7.0,<7.1
