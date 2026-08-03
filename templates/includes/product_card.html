@@ -1,0 +1,21 @@
+<div class="product">
+  <h3>
+    <a href="{% url 'store:product_detail' product.slug %}">{{ product.name }}</a>
+    {% if product.has_discount %}
+      <span class="sale-badge">SALE</span>
+    {% endif %}
+  </h3>
+  <p>{{ product.description }}</p>
+  <p>
+    Price:
+    {% if product.has_discount %}
+      {{ product.discount_price }} <span class="old-price">(was {{ product.price }})</span>
+    {% else %}
+      {{ product.price }}
+    {% endif %}
+  </p>
+  <div class="actions">
+    <a class="button secondary" href="{% url 'store:product_update' product.slug %}">Edit</a>
+    <a class="button danger" href="{% url 'store:product_delete' product.slug %}">Delete</a>
+  </div>
+</div>
