@@ -7,7 +7,7 @@
     {% csrf_token %}
     <div class="actions">
       <button class="button danger" type="submit">Delete</button>
-      <a class="button secondary" href="/product/{{ object.slug }}/">Cancel</a>
+      <a class="button secondary" href="{% url 'store:product_detail' object.slug %}">Cancel</a>
     </div>
   </form>
 {% endblock %}
