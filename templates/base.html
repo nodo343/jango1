@@ -13,6 +13,7 @@
       .content { flex:1 }
       .product { border:1px solid #eee; padding:10px; margin-bottom:10px }
       .sale-badge { color:#fff; background:#e74c3c; padding:3px 6px; border-radius:3px; font-weight:bold }
+      .old-price { color:#666; }
       .actions { display:flex; gap:10px; margin:10px 0; }
       .button { background:#333; color:#fff; border:0; padding:8px 12px; text-decoration:none; cursor:pointer; display:inline-block; }
       .button.secondary { background:#666; }
@@ -26,23 +27,10 @@
   </head>
   <body>
     <header>
-      <nav>
-        <a href="/">Home</a>
-        <a href="/sale/">Sale</a>
-        <a href="/product/add/">Add Product</a>
-      </nav>
+      {% include 'includes/navigation.html' %}
     </header>
     <div class="container">
-      <aside class="sidebar">
-        <h3>Categories</h3>
-        <ul>
-          {% for cat in categories %}
-            <li><a href="/category/{{ cat.slug }}/">{{ cat.name }} ({{ cat.product_count }})</a></li>
-          {% empty %}
-            <li>No categories</li>
-          {% endfor %}
-        </ul>
-      </aside>
+      {% include 'includes/sidebar.html' %}
       <main class="content">
         {% block content %}{% endblock %}
       </main>
