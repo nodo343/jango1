@@ -8,9 +8,9 @@
     <div class="actions">
       <button class="button" type="submit">{{ submit_label }}</button>
       {% if product %}
-        <a class="button secondary" href="/product/{{ product.slug }}/">Cancel</a>
+        <a class="button secondary" href="{% url 'store:product_detail' product.slug %}">Cancel</a>
       {% else %}
-        <a class="button secondary" href="/">Cancel</a>
+        <a class="button secondary" href="{% url 'store:home' %}">Cancel</a>
       {% endif %}
     </div>
   </form>
