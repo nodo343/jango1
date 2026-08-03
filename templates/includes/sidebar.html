@@ -1,0 +1,23 @@
+<aside class="sidebar">
+  <section>
+    <h3>Categories</h3>
+    <ul>
+      {% for cat in categories %}
+        <li><a href="{% url 'store:category_products' cat.slug %}">{{ cat.name }} ({{ cat.product_count }})</a></li>
+      {% empty %}
+        <li>No categories</li>
+      {% endfor %}
+    </ul>
+  </section>
+
+  <section>
+    <h3>Latest Products</h3>
+    <ul>
+      {% for product in latest_products %}
+        <li><a href="{% url 'store:product_detail' product.slug %}">{{ product.name }}</a></li>
+      {% empty %}
+        <li>No products yet</li>
+      {% endfor %}
+    </ul>
+  </section>
+</aside>
