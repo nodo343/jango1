@@ -13,4 +13,8 @@
   </p>
   <p>Category: <a href="{% url 'store:category_products' product.category.slug %}">{{ product.category.name }}</a></p>
   <p>Available: {{ product.available|yesno:"Yes,No" }}</p>
+  <div class="actions">
+    <a class="button secondary" href="{% url 'store:product_update' product.slug %}">Edit</a>
+    <a class="button danger" href="{% url 'store:product_delete' product.slug %}">Delete</a>
+  </div>
 {% endblock %}
