@@ -1,5 +1,6 @@
-from django.shortcuts import get_object_or_404, render
+from django.shortcuts import get_object_or_404, redirect, render
 
+from .forms import ProductForm
 from .models import Product, Category
 
 
@@ -20,5 +21,50 @@ def sale_products(request):
 
 
 def product_detail(request, slug):
-    product = get_object_or_404(Product, slug=slug, available=True)
+    product = get_object_or_404(Product, slug=slug)
     return render(request, 'product_detail.html', {'product': product})
+
+
+def product_create(request):
+    if request.method == 'POST':
+        form = ProductForm(request.POST)
+        if form.is_valid():
+            product = form.save()
+            return redirect('store:product_detail', slug=product.slug)
+    else:
+        form = ProductForm()
+
+    return render(request, 'product_form.html', {
+        'form': form,
+        'title': 'Add Product',
+        'submit_label': 'Add product',
+    })
+
+
+def product_update(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, instance=product)
+        if form.is_valid():
+            product = form.save()
+            return redirect('store:product_detail', slug=product.slug)
+    else:
+        form = ProductForm(instance=product)
+
+    return render(request, 'product_form.html', {
+        'form': form,
+        'product': product,
+        'title': 'Update Product',
+        'submit_label': 'Save changes',
+    })
+
+
+def product_delete(request, slug):
+    product = get_object_or_404(Product, slug=slug)
+
+    if request.method == 'POST':
+        product.delete()
+        return redirect('store:home')
+
+    return render(request, 'product_confirm_delete.html', {'object': product})
