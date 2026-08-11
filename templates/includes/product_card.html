@@ -14,4 +14,8 @@
       {{ product.price }}
     {% endif %}
   </p>
+  <div class="actions">
+    <a class="button secondary" href="{% url 'store:product_update' product.slug %}">Edit</a>
+    <a class="button danger" href="{% url 'store:product_delete' product.slug %}">Delete</a>
+  </div>
 </div>
