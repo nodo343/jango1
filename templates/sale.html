@@ -2,5 +2,6 @@
 
 {% block content %}
   <h1>Sale Products</h1>
+  {% include 'includes/product_filters.html' %}
   {% include 'includes/product_list.html' with empty_message='No sale products.' %}
 {% endblock %}
