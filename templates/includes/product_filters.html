@@ -1,0 +1,39 @@
+<form class="product-filters" method="get">
+  <div class="filter-field search-field">
+    <label for="product-search">Search</label>
+    <input id="product-search" type="search" name="q" value="{{ filters.query }}" placeholder="Search products">
+  </div>
+
+  {% if filters.allow_category_filter %}
+    <div class="filter-field">
+      <label for="category-filter">Category</label>
+      <select id="category-filter" name="category">
+        <option value="">All categories</option>
+        {% for cat in categories %}
+          <option value="{{ cat.slug }}" {% if filters.category_slug == cat.slug %}selected{% endif %}>{{ cat.name }}</option>
+        {% endfor %}
+      </select>
+    </div>
+  {% endif %}
+
+  {% if not filters.force_sale %}
+    <div class="filter-check">
+      <input id="sale-filter" type="checkbox" name="sale" value="on" {% if filters.sale_only %}checked{% endif %}>
+      <label for="sale-filter">Sale only</label>
+    </div>
+  {% endif %}
+
+  <div class="filter-field">
+    <label for="sort-products">Sort</label>
+    <select id="sort-products" name="sort">
+      {% for value, label in filters.sort_options %}
+        <option value="{{ value }}" {% if filters.sort == value %}selected{% endif %}>{{ label }}</option>
+      {% endfor %}
+    </select>
+  </div>
+
+  <div class="filter-actions">
+    <button class="button" type="submit">Apply</button>
+    <a class="button secondary" href="{{ request.path }}">Reset</a>
+  </div>
+</form>
