@@ -2,5 +2,6 @@
 
 {% block content %}
   <h1>Category: {{ category.name }}</h1>
+  {% include 'includes/product_filters.html' %}
   {% include 'includes/product_list.html' with empty_message='No products in this category.' %}
 {% endblock %}
